@@ -1,0 +1,82 @@
+.root {
+  @apply relative h-full w-full;
+  overflow-y: hidden;
+}
+
+.leftControl,
+.rightControl {
+  @apply bg-hover-1 absolute top-1/2 z-20 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full;
+}
+
+.leftControl:hover,
+.rightControl:hover {
+  @apply bg-hover-2;
+}
+
+.leftControl:hover,
+.rightControl:hover {
+  @apply shadow-outline-blue outline-none;
+}
+
+.leftControl {
+  @apply left-10 bg-cover;
+  background-image: url('public/cursor-left.png');
+
+  @screen md {
+    @apply left-6;
+  }
+}
+
+.rightControl {
+  @apply right-10 bg-cover;
+  background-image: url('public/cursor-right.png');
+
+  @screen md {
+    @apply right-6;
+  }
+}
+
+.control {
+  @apply opacity-0 transition duration-150;
+}
+
+.root:hover .control {
+  @apply opacity-100;
+}
+
+.positionIndicatorsContainer {
+  @apply hidden;
+
+  @screen sm {
+    @apply absolute bottom-6 left-1/2 block;
+    transform: translateX(-50%);
+  }
+}
+
+.positionIndicator {
+  @apply rounded-full p-2;
+}
+
+.dot {
+  @apply bg-hover-1 h-3 w-3 rounded-full transition;
+}
+
+.positionIndicator:hover .dot {
+  @apply bg-hover-2;
+}
+
+.positionIndicator:focus {
+  @apply outline-none;
+}
+
+.positionIndicator:focus .dot {
+  @apply shadow-outline-blue;
+}
+
+.positionIndicatorActive .dot {
+  @apply bg-white;
+}
+
+.positionIndicatorActive:hover .dot {
+  @apply bg-white;
+}
